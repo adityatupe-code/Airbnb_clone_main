@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+
+<body>
+  <div class="container">
+    <h1 class="fs-4"><%=userSelect[0].name%></h1> 
+   <div class="w-25"><img  class="" src="/img/star.svg" alt="img" style="width: 20px;height: 20px;"><span class="w-25 fw-bold"><%=userSelect[0].review_scores.review_scores_value%></span>. <u><span class="w-25 fw-bold"><%=userSelect[0].reviews.length%>reviews</span></u>. <u><span class="w-25 fw-bold"><%=userSelect[0].address.street%></span></u></div>
+
+  <div><img class="rounded-start shadow p-3 mb-5 bg-body-tertiary rounded" src="<%=userSelect[0].images.picture_url%>" alt="img"></div>
+  <div class="d-flex"><h3 class="m-2">Private Roome in <%=userSelect[0].property_type%> hosted by <%=userSelect[0].host.host_name%></h3>
+    <img class="rounded-circle m-2" src="<%=userSelect[0].host.host_thumbnail_url %>" alt="img">
+  </div>
+   <div class="fw-semibold">
+    <span><%=userSelect[0].accommodates %>guest</span>. <span><%=userSelect[0].bedrooms %>bedroom</span>. <span><%=userSelect[0].beds %>bed</span>.
+     <span><%=userSelect[0].bathrooms%> bathroom</span>
+   </div><hr class="w-75">
+
+   <!-- booking card -->
+   <div class="card float-end rounded-start shadow p-3 mb-5 bg-body-tertiary rounded sticky-top sticky-bottom" style="width: 18rem;">
+    <img src="<%=userSelect[0].images.picture_url%>" class="card-img-top" alt="...">
+    <div class="card-body">
+      <p class="card-text"><h6>Total Price = <u>$<%=userSelect[0].price%></u> night </h6></p>
+      <a href="/success_Page?id=<%=userSelect[0]._id%>"><button class="btn btn-outline-success">Reserve Your Room</button></a>
+    </div>
+  </div>
+
+  <!-- ammenities -->
+  <div>
+    <h3>What this place offers</h3>
+   <% for( let index = 0; index < 4; index++ ) { %>
+   <ul>
+    <li><h5 class="fw-light font-monospace"><%=userSelect[0].amenities[ index]%></h5></li>
+   </ul>
+   <% } %>
+   <!-- Button trigger modal -->
+<button type="button" class="btn btn-success fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdrop">
+    Show more...
+  </button>
+  
+  <!-- Modal -->
+  <div class="modal fade modal-dialog modal-dialog-scrollable" id="staticBackdrop" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">What this place offers</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+            <% for( let index = 0; index < userSelect[0].amenities.length; index++ ) { %>
+                <ul><li class="fw-semibold"><%=userSelect[0].amenities[ index]%></li></ul>
+                <% } %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+         
+        </div>
+      </div>
+    </div>
+  </div><hr class="w-75">
+ <!-- review Page -->
+<div class="">
+    <div class="w-25"><img class="" src="/img/star.svg" alt=""  style="width: 20px;height: 20px;"><u><span class="w-25 fw-bold"><%=userSelect[0].reviews.length%>Reviews</span></u></div>
+    <!-- progress bar -->
+  <div class="grid gap-3 m-2">
+    <span class="p-2 g-col-6  bg-primary text-white">Accuracy:<img  class="" src="/img/star.svg" alt="img" style="width: 20px;height: 20px;"><%=userSelect[0].review_scores.review_scores_accuracy%></span> 
+    <span class="p-2 g-col-6  bg-success text-white">Chekin:<img  class="" src="/img/star.svg" alt="img" style="width: 20px;height: 20px;"><%=userSelect[0].review_scores.review_scores_checkin%></span>
+    <span class="p-2 g-col-6 bg-danger text-white">CleanNess:<img  class="" src="/img/star.svg" alt="img" style="width: 20px;height: 20px;"> <%=userSelect[0].review_scores.review_scores_cleanliness%></span>
+    <span class="p-2 g-col-6 bg-info text-dark">Communication:<img  class="" src="/img/star.svg" alt="img" style="width: 20px;height: 20px;"><%=userSelect[0].review_scores.review_scores_communication%></span>
+    <span class="p-2 g-col-6 bg-dark text-white">Location:<img  class="" src="/img/star.svg" alt="img" style="width: 20px;height: 20px;"> <%=userSelect[0].review_scores.review_scores_location%></span>
+    <span class="p-2 g-col-6 bg-warning text-dark">Score value:<img  class="" src="/img/star.svg" alt="img" style="width: 20px;height: 20px;"> <%=userSelect[0].review_scores.review_scores_value%></span>
+  </div>
+  <!-- Reviews -->
+  <div class="">
+    <% if ( userSelect[0].reviews.length !== " ") { %>
+      <% for( let index = 0; index <4; index++ ) { %>
+        <% let reviewer_name = userSelect[0].reviews[index].reviewer_name; %>
+        <% reviewer_name ??= "review NOt Found"; %>
+        <% let comments =userSelect[0].reviews[index].comments; %>
+        <% comments ??= "Comments NOt Found"; %>
+        <% let review_Date=new Date(userSelect[0].reviews[index].date); %>
+        <%  review_Date ??= "Data NOt Found"; %>
+        <ul>
+        <li><h5 class="fw-bold"><%=reviewer_name%></h5>
+        <span class="fw-light"><%=comments%></span><br>
+        <span><p class="fw-semibold">The review was posted on <%=review_Date.toLocaleDateString()%>.</p></span>
+      </li>
+      </ul>
+        <% } %>
+        <button type="button" class="btn bg-success text-light fw-bold" data-bs-toggle="modal" data-bs-target="#staticBackdropReview">
+          show more reviews...
+        </button>
+    <% } %>
+      
+  </div>
+   
+  
+  <!-- Modal -->
+  <div class="modal fade modal-dialog modal-dialog-scrollable" id="staticBackdropReview" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-scrollable">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel">Total Reviews</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <% for( let index = 0; index < userSelect[0].reviews.length; index++ ) { %>
+            <% let reviewer_name = userSelect[0].reviews[index].reviewer_name; %>
+            <% reviewer_name ??= "review NOt Found"; %>
+            <% let comments =userSelect[0].reviews[index].comments; %>
+            <% comments ??= "Comments NOt Found"; %>
+            <% let review_Date=new Date(userSelect[0].reviews[index].date); %>
+            <%  review_Date ??= "Data NOt Found"; %>
+            <ul>
+            <li><h5 class="fw-bold"><%=reviewer_name%></h5>
+            <span class="fw-light"><%=comments%></span><br>
+            <span><p class="fw-semibold">The review was posted on <%=review_Date.toLocaleDateString()%>.</p></span>
+          </li>
+          </ul>
+            <% } %>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div><hr class="w-75">
+  <!-- host Information -->
+  <div>
+  <div class="d-flex"> <img class="rounded-circle m-2" src="<%=userSelect[0].host.host_thumbnail_url%>" alt="host img"><h3><%=userSelect[0].host.host_name%></h3></div>
+   
+    <p class="fw-semibold w-75"><%=userSelect[0].host.host_about%></p>
+    <a class="text-decoration-none" href="/contactHost?id=<%=userSelect[0]._id%>"><button class="btn btn-warning text-light fw-bold">Contact Host</button></a>
+  </div>
+  <!-- things to know -->
+<div>
+  <h4>Things to know</h4>
+  <p><%=userSelect[0].house_rules%></p>
+</div>
+</div>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <!-- <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" /> -->
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0" />
+  
+ <script src="https://cdn.tailwindcss.com"></script>  
+
+  <style>
+   /* *{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+} */
+
+/* html, */
+
+
+body{
+  /* display:flex; */
+  justify-content:center;
+  align-items:center;
+  font-family:sans-serif;
+  /* background:url("https://images.unsplash.com/photo-1580196969807-cc6de06c05be?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1579&q=80");
+  background-size:cover;
+  background-repeat:no-repeat; */
+  
+}
+
+.bar{
+  width:400px;
+  background:white;
+  box-shadow:0 0 5px hsl(0 0% 78%);
+  height:45px;
+  border-radius:100vw;
+  display:flex;
+  justify-content:center;
+  font-size:0.6rem;
+}
+
+.bar div{
+  border-radius:inherit;
+  padding:1.2rem 1rem;
+  transition:background 250ms ease;
+}
+
+.bar div:hover{
+  background:hsl(0 0% 94%);
+}
+
+.location{
+  width:34%;
+}
+.check-in, .check-out, .guests{
+  width:22%;
+}
+
+input[type="text"]{
+  background:none;
+  border:none;
+  padding:0.2rem 0 0 0;
+}
+
+input[type="text"]:focus{
+  outline:none;
+}
+
+::placeholder{
+  font-size:0.75rem;
+}
+
+.guests{
+  position: relative;  
+}
+.guests span{
+  position:absolute;
+  top:50%;
+  right:-57px;
+  transform:translateY(-50%);
+  background:#FF385C;
+  color:white;
+  font-size:0.8rem;
+  padding:0.7rem;
+  border-radius:50%;
+}
+
+.bar>div{
+  position:relative;
+}
+
+
+.bar>div::before{
+  position:absolute;
+  content:"";
+  left:0;
+  top:50%;
+  transform:translateY(-50%);
+  width:1px;
+  height:55%;
+  background:hsl(0 0% 90%);
+}
+
+.bar>div:nth-of-type(1)::before{
+   background:transparent;
+}
+
+
+.bar>div:hover::before{
+  background:transparent;
+}
+  </style>
+</head>
+<body class="">
+    <!-- start code -->
+<nav class="d-flex justify-content-between bg-white p-2 h-25 sticky-top 
+" >
+    <!-- logo -->
+    <div class="mt-3 h-25 m-lg-4 ">
+<img src="/img/logoair.svg" alt="img">
+    </div>
+    <!-- navmid capsule -->
+   
+    
+
+
+    <div class="bar mt-3 ">
+  <!-- <div class="location">
+    <p>Location</p>
+    <input type="text" placeholder="Where are you going?">
+  </div> -->
+  <div class="check-in tx-si ">
+        <p>Anywhere</p>
+    <input type="text" >
+  </div>
+  <div class="check-out">
+        <p>Any week</p>
+    <input type="text" >
+  </div>
+  <div class="guests">
+        <!-- <p>Add Guests</p> -->
+        <input type="text" placeholder="Add guests">
+        <button ><span class="material-symbols-outlined">search</span>
+        </button>
+    
+   
+  </div>
+</div>
+
+
+     <!-- <div class="   ">
+
+      // btn w-25  border rounded-pill shadow p-3 mb-2 mt-3 bg-body-tertiary rounded h-25 
+        <form action="/" >
+         <span> <label class="text-secondary fw-bold"  for="country"> Country Name:</label> </span>
+         <span> <input class="border  rounded-pill " type="text" id="country" name="country" placeholder="search"> </span>
+          <button type="submit" class="btn btn-outline-danger  rounded-pill" ><span class="material-symbols-outlined">
+search
+</span></button>
+          
+        </form>
+    </div>  -->
+    
+    
+ <!-- login -->
+    <!-- <div class="flex-initial">
+      <div class="flex justify-end items-center relative">
+       
+        <div class="flex mr-4 items-center">
+          <a class="inline-block py-2 px-3 hover:bg-gray-200 rounded-full no-underline text-dark" href="http://localhost:3000/AddHost">
+            <div class="flex items-center relative cursor-pointer whitespace-nowrap ">Become a host</div>
+          </a>
+          <div class="block relative">
+            <button type="button" class="inline-block py-2 px-3 hover:bg-gray-200 rounded-full relative ">
+              <div class="flex items-center h-5">
+                <div class="_xpkakx">
+                  <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 16px; width: 16px; fill: currentcolor;"><path d="m8.002.25a7.77 7.77 0 0 1 7.748 7.776 7.75 7.75 0 0 1 -7.521 7.72l-.246.004a7.75 7.75 0 0 1 -7.73-7.513l-.003-.245a7.75 7.75 0 0 1 7.752-7.742zm1.949 8.5h-3.903c.155 2.897 1.176 5.343 1.886 5.493l.068.007c.68-.002 1.72-2.365 1.932-5.23zm4.255 0h-2.752c-.091 1.96-.53 3.783-1.188 5.076a6.257 6.257 0 0 0 3.905-4.829zm-9.661 0h-2.75a6.257 6.257 0 0 0 3.934 5.075c-.615-1.208-1.036-2.875-1.162-4.686l-.022-.39zm1.188-6.576-.115.046a6.257 6.257 0 0 0 -3.823 5.03h2.75c.085-1.83.471-3.54 1.059-4.81zm2.262-.424c-.702.002-1.784 2.512-1.947 5.5h3.904c-.156-2.903-1.178-5.343-1.892-5.494l-.065-.007zm2.28.432.023.05c.643 1.288 1.069 3.084 1.157 5.018h2.748a6.275 6.275 0 0 0 -3.929-5.068z"></path></svg>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="block">
+            <div class="inline relative">
+                <button type="button" class="inline-flex items-center relative px-2 border rounded-full hover:shadow-lg">
+                    <div class="pl-1">
+                        <svg
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                            role="presentation"
+                            focusable="false"
+                            style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 3; overflow: visible;"
+                        >
+                            <g fill="none" fill-rule="nonzero">
+                                <path d="m2 16h28"></path>
+                                <path d="m2 24h28"></path>
+                                <path d="m2 8h28"></path>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="block flex-grow-0 flex-shrink-0 h-10 w-12 pl-5">
+                        <svg
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                            role="presentation"
+                            focusable="false"
+                            style="display: block; height: 100%; width: 100%; fill: currentcolor;"
+                        >
+                            <path d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z"></path>
+                        </svg>
+                    </div>
+                </button>
+            </div>
+        </div>
+      </div>
+    </div> -->
+
+
+    
+    
+    <!-- nav end part -->
+    <div class="w-25 d-flex justify-content-between h-25 mt-3">
+<!-- <div class="w-25 d-flex justify-content-between h-25 mt-3">
+   
+<a href="http://localhost:3000/AddHost" class="text-decoration-none"><div id="test" class="w-100  text-center text-dark hover:bg-gray-200 inline-block py-2 px-3" >Airbnb your home</div></a>
+
+ 
+<button type="button" class="btn  w-25"><img class="w-100 search" data-bs-toggle="modal" data-bs-target="#exampleModalAnywhere"  src="/img/earth.svg" alt=""></button>
+<div class="dropdown  w-25">
+  <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <img class="w-50" src="/img/threebar.svg" alt="img"><img id="profile" class="w-50 border rounded" src="/img/profile.svg" alt="img">
+  </button>
+ 
+  <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="http://localhost:3000/auth/google">sign up</a></li>
+    <li><a class="dropdown-item" href="http://localhost:3000/auth/google">sign in</a></li>
+    <li><a class="dropdown-item" href="http://localhost:3000/logout">logout</a></li>
+  </ul>
+  
+</div> -->
+
+ <div class="flex-initial">
+      <div class="flex justify-end items-center relative">
+       
+        <div class="flex mr-4 items-center">
+          <a class="inline-block py-2 px-3 hover:bg-gray-200 rounded-full no-underline text-dark" href="http://localhost:3000/AddHost">
+            <div class="flex items-center relative cursor-pointer whitespace-nowrap ">Become a host</div>
+          </a>
+          <div class="block relative">
+            <button type="button" class="inline-block py-2 px-3 hover:bg-gray-200 rounded-full relative ">
+              <div class="flex items-center h-5">
+                <div class="_xpkakx">
+                  <svg viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" role="presentation" focusable="false" style="display: block; height: 16px; width: 16px; fill: currentcolor;"><path d="m8.002.25a7.77 7.77 0 0 1 7.748 7.776 7.75 7.75 0 0 1 -7.521 7.72l-.246.004a7.75 7.75 0 0 1 -7.73-7.513l-.003-.245a7.75 7.75 0 0 1 7.752-7.742zm1.949 8.5h-3.903c.155 2.897 1.176 5.343 1.886 5.493l.068.007c.68-.002 1.72-2.365 1.932-5.23zm4.255 0h-2.752c-.091 1.96-.53 3.783-1.188 5.076a6.257 6.257 0 0 0 3.905-4.829zm-9.661 0h-2.75a6.257 6.257 0 0 0 3.934 5.075c-.615-1.208-1.036-2.875-1.162-4.686l-.022-.39zm1.188-6.576-.115.046a6.257 6.257 0 0 0 -3.823 5.03h2.75c.085-1.83.471-3.54 1.059-4.81zm2.262-.424c-.702.002-1.784 2.512-1.947 5.5h3.904c-.156-2.903-1.178-5.343-1.892-5.494l-.065-.007zm2.28.432.023.05c.643 1.288 1.069 3.084 1.157 5.018h2.748a6.275 6.275 0 0 0 -3.929-5.068z"></path></svg>
+                </div>
+              </div>
+            </button>
+          </div>
+        </div>
+
+        <div class="block">
+            <div class="inline relative">
+              <div class="dropdown  w-25">
+  <!-- <button class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <img class="w-50" src="/img/threebar.svg" alt="img"><img id="profile" class="w-50 border rounded" src="/img/profile.svg" alt="img">
+  </button> -->
+ 
+  <!-- <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="http://localhost:3000/auth/google">sign up</a></li>
+    <li><a class="dropdown-item" href="http://localhost:3000/auth/google">sign in</a></li>
+    <li><a class="dropdown-item" href="http://localhost:3000/logout">logout</a></li>
+  </ul>
+   -->
+
+                <button type="button" class="inline-flex items-center relative px-2 border rounded-full hover:shadow-lg"  class="btn  dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <div class="pl-1">
+                        <svg
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                            role="presentation"
+                            focusable="false"
+                            style="display: block; fill: none; height: 16px; width: 16px; stroke: currentcolor; stroke-width: 3; overflow: visible;"
+                        >
+                            <g fill="none" fill-rule="nonzero">
+                                <path d="m2 16h28"></path>
+                                <path d="m2 24h28"></path>
+                                <path d="m2 8h28"></path>
+                            </g>
+                        </svg>
+                    </div>
+
+                    <div class="block flex-grow-0 flex-shrink-0 h-10 w-12 pl-5">
+                        <svg
+                            viewBox="0 0 32 32"
+                            xmlns="http://www.w3.org/2000/svg"
+                            aria-hidden="true"
+                            role="presentation"
+                            focusable="false"
+                            style="display: block; height: 100%; width: 100%; fill: currentcolor;"
+                        >
+                            <path d="m16 .7c-8.437 0-15.3 6.863-15.3 15.3s6.863 15.3 15.3 15.3 15.3-6.863 15.3-15.3-6.863-15.3-15.3-15.3zm0 28c-4.021 0-7.605-1.884-9.933-4.81a12.425 12.425 0 0 1 6.451-4.4 6.507 6.507 0 0 1 -3.018-5.49c0-3.584 2.916-6.5 6.5-6.5s6.5 2.916 6.5 6.5a6.513 6.513 0 0 1 -3.019 5.491 12.42 12.42 0 0 1 6.452 4.4c-2.328 2.925-5.912 4.809-9.933 4.809z"></path>
+                        </svg>
+                    </div>
+                </button>
+                
+                <ul class="dropdown-menu">
+    <li><a class="dropdown-item" href="http://localhost:3000/auth/google">sign up</a></li>
+    <li><a class="dropdown-item" href="http://localhost:3000/auth/google">sign in</a></li>
+    <li><a class="dropdown-item" href="http://localhost:3000/logout">logout</a></li>
+  </ul>
+
+                </div>
+                <!-- //hf -->
+
+            </div>
+        </div>
+      </div>
+    </div>
+ 
+<!-- <button type="button" class="btn w-25"><img class="w-50" src="/img/threebar.svg" alt="img"><img class="w-50" src="/img/profile.svg" alt="img"></button> -->
+    </div>
+</nav><hr>
+
+
+
+
+
+    <!-- End Code -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+
+    
+</body> 
+
+</html>
+
