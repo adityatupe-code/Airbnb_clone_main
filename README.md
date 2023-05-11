@@ -1,4 +1,7 @@
 # airbnb_Clone
+![airbnb](https://github.com/adityatupe-code/Airbnb_clone_main/assets/114912746/007731e0-c349-4768-988d-725b5ac28da8)
+
+
 ejs nodejs expressjs javascript css and bootstrap and npm liabraries are used in this
 Airbnb Clone
 This is an Airbnb clone made using EJS, JavaScript, CSS, Bootstrap, Node.js, Express.js, and MongoDB. This application allows users to browse and book listings for accommodations, as well as create and manage their own listings as hosts.
